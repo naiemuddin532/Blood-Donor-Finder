@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Users | Blood Donor Finder</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="protected">
+  <div id="navbar"></div>
+
+  <div class="page">
+    <div class="page-head">
+      <div>
+        <h1>Users</h1>
+        <p>Approve, block or delete accounts.</p>
+      </div>
+    </div>
+
+    <div class="admin-tools">
+      <input type="text" id="search" placeholder="Search name or email">
+      <div class="tabs" id="tabs" style="margin:0">
+        <button class="tab active" data-filter="all">All</button>
+        <button class="tab" data-filter="donor">Donors</button>
+        <button class="tab" data-filter="recipient">Recipients</button>
+        <button class="tab" data-filter="staff">Staff</button>
+        <button class="tab" data-filter="pending">Pending</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>User</th><th>Role</th><th>Area</th><th>Status</th><th>Actions</th></tr></thead>
+          <tbody id="userBody"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/common.js"></script>
+  <script src="js/admin-users.js"></script>
+</body>
+</html>

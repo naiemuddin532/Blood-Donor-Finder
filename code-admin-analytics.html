@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Analytics | Blood Donor Finder</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="protected">
+  <div id="navbar"></div>
+
+  <div class="page">
+    <div class="page-head">
+      <div>
+        <h1>Analytics</h1>
+        <p>How the platform is being used.</p>
+      </div>
+    </div>
+
+    <div class="two-col">
+      <div class="card"><h3>Donors per blood group</h3><div id="groupChart"></div></div>
+      <div class="card"><h3>Requests per month</h3><div id="monthChart"></div></div>
+    </div>
+    <div class="two-col">
+      <div class="card"><h3>Requests by urgency</h3><div id="urgencyChart"></div></div>
+      <div class="card"><h3>Requests by area</h3><div id="areaChart"></div></div>
+    </div>
+  </div>
+
+  <script src="js/common.js"></script>
+  <script src="js/admin-analytics.js"></script>
+</body>
+</html>
