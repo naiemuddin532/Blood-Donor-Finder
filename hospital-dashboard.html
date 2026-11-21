@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hospital Staff Dashboard | Blood Donor Finder</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="protected">
+  <div id="navbar"></div>
+
+  <div class="page">
+    <div class="page-head">
+      <div>
+        <h1>Hospital Staff Portal</h1>
+        <p id="staffSubtitle">City Care Blood Bank &middot; Mirpur</p>
+      </div>
+      <span class="chip chip-blue" style="font-size:13px; padding:6px 14px;" id="staffBadge">City Care Hospital</span>
+    </div>
+
+    <div class="tabs">
+      <button class="tab active" data-tab="tab-overview">Dashboard Overview</button>
+      <button class="tab" data-tab="tab-stock">Blood Stock</button>
+      <button class="tab" data-tab="tab-requests">Area Requests</button>
+      <button class="tab" data-tab="tab-verif">Verifications (<span id="verifBadge">0</span>)</button>
+      <button class="tab" data-tab="tab-camps">Donation Camps</button>
+    </div>
+
+    <div id="tab-overview" class="tab-content active">
+      <div class="kpi-grid">
+        <div class="card kpi">
+          <span>Total units in stock</span>
+          <b id="dashTotal">0</b>
+          <small>Across all blood groups</small>
+        </div>
+        <div class="card kpi">
+          <span>Low-stock groups</span>
+          <b id="dashLow" class="text-red">0</b>
+          <small>Below 8 units threshold</small>
+        </div>
+        <div class="card kpi">
+          <span>Open area requests</span>
+          <b id="dashRequests">0</b>
+          <small>In local area</small>
+        </div>
+        <div class="card kpi">
+          <span>Awaiting verification</span>
+          <b id="dashPending" class="text-amber">0</b>
+          <small>Donor records</small>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Inventory Alert & Notice</h3>
+        <p id="dashAlertText" class="alert-box" style="margin-bottom: 0;">Checking inventory...</p>
+      </div>
+    </div>
+
+    <div id="tab-stock" class="tab-content">
+      <div class="two-col">
+        <div class="card">
+          <div class="card-title" style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+            <h3 style="margin:0;">Current Blood Stock</h3>
+            <span class="muted" style="font-size:12px;">Threshold: 8 units</span>
+          </div>
+          <p id="stockAlert" class="alert-box"></p>
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Blood Group</th>
+                  <th>Units Available</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody id="stockTableBody"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Update Blood Stock</h3>
+          <p class="muted" style="font-size:13px; margin-bottom:14px;">Adjust unit counts after receiving blood donations or hospital dispatches.</p>
+          <form id="stockForm" novalidate>
+            <div class="form-group">
+              <label for="stockGroup">Blood Group</label>
+              <select id="stockGroup">
+                <option value="">-- Select Group --</option>
+                <option value="A+">A+</option><option value="A-">A-</option>
+                <option value="B+">B+</option><option value="B-">B-</option>
+                <option value="O+">O+</option><option value="O-">O-</option>
+                <option value="AB+">AB+</option><option value="AB-">AB-</option>
+              </select>
+              <p class="field-error" id="stockGroupErr"></p>
+            </div>
+            <div class="form-group">
+              <label for="stockUnits">Units Available</label>
+              <input type="number" id="stockUnits" min="0" placeholder="e.g. 25">
+              <p class="field-error" id="stockUnitsErr"></p>
+            </div>
+            <button type="submit" class="btn full">Save Stock</button>
+            <p class="field-success" id="stockSuccess"></p>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div id="tab-requests" class="tab-content">
+      <div class="card">
+        <div class="filter-row">
+          <h3 style="margin:0;">Open Requests in Area</h3>
+          <div class="tabs" style="margin-bottom:0;" id="requestFilterBtns">
+            <button class="tab active" data-filter="All">All</button>
+            <button class="tab" data-filter="high">High Urgency</button>
+            <button class="tab" data-filter="medium">Medium</button>
+            <button class="tab" data-filter="low">Low</button>
+          </div>
+        </div>
+        <div id="requestsList"></div>
+      </div>
+    </div>
+
+    <div id="tab-verif" class="tab-content">
+      <div class="two-col">
+        <div class="card">
+          <div class="card-title" style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+            <h3 style="margin:0;">Pending Verifications</h3>
+            <span class="muted" style="font-size:12px;">Requires Staff Approval</span>
+          </div>
+          <div id="pendingList"></div>
+        </div>
+
+        <div class="card">
+          <h3>Verified Log</h3>
+          <p class="muted" style="font-size:12px; margin-bottom:12px;">Rule: Verifying a donor updates their profile and sets their next eligible donation date (+90 days).</p>
+          <ul id="verifiedList" style="list-style:none; padding:0; margin:0;"></ul>
+        </div>
+      </div>
+    </div>
+
+    <div id="tab-camps" class="tab-content">
+      <div class="two-col">
+        <div class="card">
+          <h3>Scheduled Blood Donation Drives</h3>
+          <div id="campsList"></div>
+        </div>
+
+        <div class="card">
+          <h3>Schedule a Donation Drive</h3>
+          <form id="campForm" novalidate>
+            <div class="form-group">
+              <label for="campTitle">Drive Title</label>
+              <input type="text" id="campTitle" placeholder="e.g. Youth Blood Drive 2026">
+              <p class="field-error" id="campTitleErr"></p>
+            </div>
+            <div class="form-group">
+              <label for="campDate">Date & Time</label>
+              <input type="text" id="campDate" placeholder="e.g. 2026-12-10 10:00 AM">
+              <p class="field-error" id="campDateErr"></p>
+            </div>
+            <div class="form-group">
+              <label for="campLoc">Location</label>
+              <input type="text" id="campLoc" placeholder="e.g. Mirpur Community Center">
+              <p class="field-error" id="campLocErr"></p>
+            </div>
+            <button type="submit" class="btn full">Publish Drive</button>
+            <p class="field-success" id="campSuccess"></p>
+          </form>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="js/common.js"></script>
+  <script src="js/hospital-dashboard.js"></script>
+</body>
+</html>
