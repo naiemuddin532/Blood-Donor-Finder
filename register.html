@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register | Blood Donor Finder</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="auth-body">
+  <div class="auth-wrap">
+
+    <div class="auth-hero">
+      <div class="logo"><span>&#129656;</span> Blood Donor Finder</div>
+      <h2>Join the donor community.</h2>
+      <p>Create an account in a minute and help someone nearby.</p>
+      <div class="hero-point"><i>&#10003;</i><div><b>Free for donors, recipients and hospitals</b></div></div>
+      <div class="hero-point"><i>&#10003;</i><div><b>Choose when you are available to donate</b></div></div>
+      <div class="hero-point"><i>&#10003;</i><div><b>Your phone stays hidden until you accept</b></div></div>
+    </div>
+
+    <div class="auth-panel">
+      <div class="auth-card wide">
+        <h1>Create your account</h1>
+        <p class="subtitle">Choose your account type and fill in the details.</p>
+
+        <div id="msg" class="msg"></div>
+
+        <form id="registerForm" novalidate>
+          <div class="role-cards">
+            <label class="role-card">
+              <input type="radio" name="role" value="donor" checked>
+              <b>I am a donor</b><small>I want to donate blood</small>
+            </label>
+            <label class="role-card">
+              <input type="radio" name="role" value="recipient">
+              <b>I need blood</b><small>Patient or family member</small>
+            </label>
+            <label class="role-card">
+              <input type="radio" name="role" value="staff">
+              <b>Hospital staff</b><small>Hospital or blood bank (admin approval)</small>
+            </label>
+            <label class="role-card">
+              <input type="radio" name="role" value="admin">
+              <b>Admin</b><small>Needs an admin access code</small>
+            </label>
+          </div>
+
+          <div class="row-2">
+            <div class="form-group">
+              <label for="name">Full name</label>
+              <input type="text" id="name" placeholder="Karim Rahman">
+            </div>
+            <div class="form-group">
+              <label for="email">Email address</label>
+              <input type="email" id="email" placeholder="karim@example.com">
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone number</label>
+              <input type="text" id="phone" placeholder="01700000000">
+            </div>
+            <div class="form-group" id="hospitalGroup">
+              <label for="hospital">Hospital / blood bank name</label>
+              <input type="text" id="hospital" placeholder="City Care Hospital">
+            </div>
+            <div class="form-group" id="bloodGroupBox">
+              <label for="bloodGroup">Blood group</label>
+              <select id="bloodGroup"></select>
+            </div>
+            <div class="form-group" id="areaBox">
+              <label for="area">Area</label>
+              <select id="area"></select>
+            </div>
+            <div class="form-group" id="lastDonatedBox">
+              <label for="lastDonated">Date of last donation (optional)</label>
+              <input type="date" id="lastDonated">
+            </div>
+            <div class="form-group" id="codeGroup">
+              <label for="adminCode">Admin access code</label>
+              <input type="password" id="adminCode" placeholder="Code given by the project owner">
+            </div>
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password" id="password" placeholder="At least 8 characters">
+            </div>
+            <div class="form-group">
+              <label for="confirm">Confirm password</label>
+              <input type="password" id="confirm" placeholder="Re-enter password">
+            </div>
+          </div>
+
+          <label class="checkbox">
+            <input type="checkbox" id="terms">
+            I agree to the terms and privacy rules of this platform.
+          </label>
+
+          <button type="submit" class="btn full">Create account</button>
+        </form>
+
+        <p class="switch-text">Already registered? <a href="login.html">Sign in</a></p>
+        <p class="note">Hospital staff accounts can sign in only after the admin approves them.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="js/common.js"></script>
+  <script src="js/register.js"></script>
+</body>
+</html>

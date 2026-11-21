@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Post Request | Blood Donor Finder</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="protected">
+  <div id="navbar"></div>
+
+  <div class="page">
+    <div class="page-head">
+      <div>
+        <h1>Post a blood request</h1>
+        <p>Alert matching donors and blood banks in your area at once.</p>
+      </div>
+    </div>
+
+    <div class="post-grid">
+      <form class="card" id="postForm" novalidate>
+        <div id="msg" class="msg"></div>
+
+        <div class="row-2">
+          <div class="form-group"><label for="group">Blood group</label><select id="group"></select></div>
+          <div class="form-group"><label for="units">Units needed</label><input type="number" id="units" value="2" min="1" max="10"></div>
+          <div class="form-group"><label for="hospital">Hospital</label><input type="text" id="hospital" placeholder="City Care Hospital"></div>
+          <div class="form-group"><label for="area">Area</label><select id="area"></select></div>
+        </div>
+
+        <div class="form-group"><label>Blood needed within</label></div>
+        <div class="urgency-grid">
+          <label class="urgency-option">
+            <input type="radio" name="hours" value="6" checked>
+            <span class="chip chip-high">High urgency</span>
+            <b>Within 6 hours</b><small>Emergency, surgery, accident</small>
+          </label>
+          <label class="urgency-option">
+            <input type="radio" name="hours" value="24">
+            <span class="chip chip-medium">Medium urgency</span>
+            <b>Within 24 hours</b><small>Urgent treatment</small>
+          </label>
+          <label class="urgency-option">
+            <input type="radio" name="hours" value="72">
+            <span class="chip chip-low">Low urgency</span>
+            <b>Within 3 days</b><small>Planned operation</small>
+          </label>
+        </div>
+
+        <div class="post-actions">
+          <span class="muted">&#128274; Your phone number is shared only after a donor accepts.</span>
+          <button type="submit" class="btn">&#128276; Send request</button>
+        </div>
+      </form>
+
+      <div class="side-stack">
+        <div class="card">
+          <h3>Who will be alerted</h3>
+          <div class="alert-row">
+            <div class="blood-badge" id="alertBadge">B+</div>
+            <div><b id="alertDonors"></b><small id="alertDonorsSub"></small></div>
+          </div>
+          <div class="alert-row">
+            <div class="blood-badge blue">&#127973;</div>
+            <div><b id="alertBanks"></b><small id="alertBanksSub"></small></div>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Urgency shown to donors</h3>
+          <p class="muted"><span class="chip chip-high">High urgency</span> Set automatically from the time you choose. Donors see the most urgent requests first.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/common.js"></script>
+  <script src="js/post-request.js"></script>
+</body>
+</html>

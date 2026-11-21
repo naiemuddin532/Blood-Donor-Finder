@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Requests | Blood Donor Finder</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="protected">
+  <div id="navbar"></div>
+
+  <div class="page">
+    <div class="page-head">
+      <div>
+        <h1>My requests</h1>
+        <p>Track every request you have posted.</p>
+      </div>
+      <a href="post-request.html" class="btn">+ Post new request</a>
+    </div>
+
+    <div class="tabs" id="tabs">
+      <button class="tab active" data-filter="all">All</button>
+      <button class="tab" data-filter="open">Open</button>
+      <button class="tab" data-filter="accepted">Accepted</button>
+      <button class="tab" data-filter="fulfilled">Fulfilled</button>
+      <button class="tab" data-filter="expired">Expired</button>
+    </div>
+
+    <div class="card">
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Request</th><th>Hospital</th><th>Urgency</th><th>Status</th><th>Donor</th><th></th></tr>
+          </thead>
+          <tbody id="requestBody"></tbody>
+        </table>
+      </div>
+      <p class="table-note">&#128274; A donor's phone number appears only after the request is accepted.</p>
+    </div>
+  </div>
+
+  <script src="js/common.js"></script>
+  <script src="js/my-requests.js"></script>
+</body>
+</html>

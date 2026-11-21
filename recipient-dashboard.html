@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard | Blood Donor Finder</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="protected">
+  <div id="navbar"></div>
+
+  <div class="page">
+    <div class="page-head">
+      <div>
+        <h1 id="welcome">Welcome back</h1>
+        <p>Find donors fast and track your blood requests.</p>
+      </div>
+      <a href="post-request.html" class="btn">&#128276; Post blood request</a>
+    </div>
+
+    <!-- 4 number boxes -->
+    <div class="kpi-grid">
+      <div class="card kpi"><span>Active requests</span><b id="kActive">0</b><small id="kActiveSub"></small></div>
+      <div class="card kpi"><span>Accepted</span><b id="kAccepted">0</b><small>Donor on the way</small></div>
+      <div class="card kpi"><span>Fulfilled</span><b id="kFulfilled">0</b><small>All time</small></div>
+      <div class="card kpi"><span>Expired</span><b id="kExpired">0</b><small>Not answered in time</small></div>
+    </div>
+
+    <div class="dash-grid">
+      <div>
+        <div class="quick-grid">
+          <div class="card quick-card">
+            <div class="icon">&#128269;</div>
+            <h3>Find a donor</h3>
+            <p>Search available donors by blood group and area.</p>
+            <a href="find-donors.html" class="btn small">Search now</a>
+          </div>
+          <div class="card quick-card">
+            <div class="icon">&#128276;</div>
+            <h3>Post a request</h3>
+            <p>Alert all matching donors and blood banks nearby.</p>
+            <a href="post-request.html" class="btn small">Post request</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title"><h3>Recent requests</h3><a href="my-requests.html">View all</a></div>
+          <div id="recentList"></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title"><h3>Notifications</h3><span class="chip chip-high" id="newCount"></span></div>
+        <div id="notifList"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/common.js"></script>
+  <script src="js/recipient-dashboard.js"></script>
+</body>
+</html>

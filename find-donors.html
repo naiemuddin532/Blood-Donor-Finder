@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Find Donors | Blood Donor Finder</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="protected">
+  <div id="navbar"></div>
+
+  <div class="page">
+    <div class="page-head">
+      <div>
+        <h1>Find a blood donor</h1>
+        <p>Search available donors in your area, or alert everyone nearby at once.</p>
+      </div>
+      <a href="post-request.html" class="btn">&#128276; Post area-wide request</a>
+    </div>
+
+    <!-- search filters -->
+    <form class="card filter-bar" id="searchForm">
+      <div class="form-group">
+        <label for="group">Blood group</label>
+        <select id="group"></select>
+      </div>
+      <div class="form-group">
+        <label for="area">Area</label>
+        <select id="area"></select>
+      </div>
+      <div class="form-group">
+        <label>Availability</label>
+        <div class="switch-row">
+          Available now
+          <label class="switch"><input type="checkbox" id="onlyAvailable" checked><span class="slider"></span></label>
+        </div>
+      </div>
+      <button type="submit" class="btn">&#128269; Search</button>
+    </form>
+
+    <div class="result-head">
+      <b id="resultTitle"></b>
+      <span class="muted">Sorted by last donation</span>
+    </div>
+
+    <div class="donor-grid" id="donorGrid"></div>
+  </div>
+
+  <script src="js/common.js"></script>
+  <script src="js/find-donors.js"></script>
+</body>
+</html>
