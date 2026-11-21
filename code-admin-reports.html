@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reports | Blood Donor Finder</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="protected">
+  <div id="navbar"></div>
+
+  <div class="page">
+    <div class="page-head">
+      <div>
+        <h1>Reports</h1>
+        <p>Review reports about fake donors and false requests.</p>
+      </div>
+    </div>
+
+    <div class="report-grid">
+      <div class="card">
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Report</th><th>Reported by</th><th>Status</th></tr></thead>
+            <tbody id="reportBody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="card" id="detail"></div>
+    </div>
+  </div>
+
+  <script src="js/common.js"></script>
+  <script src="js/admin-reports.js"></script>
+</body>
+</html>

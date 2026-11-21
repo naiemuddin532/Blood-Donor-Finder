@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login | Blood Donor Finder</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="auth-body">
+  <div class="auth-wrap">
+
+    <!-- left red side -->
+    <div class="auth-hero">
+      <div class="logo"><span>&#129656;</span> Blood Donor Finder</div>
+      <h2>Every drop counts. Find a donor in minutes.</h2>
+      <p>One trusted place for donors, patients and hospitals to connect when blood is needed most.</p>
+      <div class="hero-point"><i>&#128269;</i><div><b>Search by blood group and area</b><small>Find matching, available donors in seconds.</small></div></div>
+      <div class="hero-point"><i>&#128276;</i><div><b>Instant area-wide alerts</b><small>Donors and blood banks nearby are notified at once.</small></div></div>
+      <div class="hero-point"><i>&#128274;</i><div><b>Privacy first</b><small>Phone numbers stay hidden until a request is accepted.</small></div></div>
+    </div>
+
+    <!-- right form side -->
+    <div class="auth-panel">
+      <div class="auth-card">
+        <h1>Welcome back</h1>
+        <p class="subtitle">Sign in to your account to continue.</p>
+
+        <div class="auth-tabs">
+          <a href="login.html" class="active">Login</a>
+          <a href="register.html">Register</a>
+        </div>
+
+        <div id="msg" class="msg"></div>
+
+        <form id="loginForm" novalidate>
+          <div class="form-group">
+            <label for="email">Email address</label>
+            <input type="email" id="email" placeholder="you@example.com">
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" placeholder="Your password">
+          </div>
+          <p class="forgot"><a href="reset.html">Forgot password?</a></p>
+          <button type="submit" class="btn full">Sign in</button>
+        </form>
+
+        <p class="switch-text">New here? <a href="register.html">Create an account</a> as a donor or recipient</p>
+
+        <div class="demo-box" id="fileTip" style="display:none">
+          Tip: open this project with VS Code <b>Live Server</b> for the best result (register and login data are shared between pages).
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="js/common.js"></script>
+  <script src="js/login.js"></script>
+</body>
+</html>

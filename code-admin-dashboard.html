@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Overview | Blood Donor Finder</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="protected">
+  <div id="navbar"></div>
+
+  <div class="page">
+    <div class="page-head">
+      <div>
+        <h1>Overview</h1>
+        <p>Platform activity and items that need your attention.</p>
+      </div>
+      <a href="admin-notices.html" class="btn">&#128226; Publish notice</a>
+    </div>
+
+    <div class="kpi-grid">
+      <div class="card kpi"><span>Registered users</span><b id="kUsers">0</b><small>All roles</small></div>
+      <div class="card kpi"><span>Active donors</span><b id="kDonors">0</b><small>Can receive alerts</small></div>
+      <div class="card kpi"><span>Open requests</span><b id="kOpen">0</b><small>Awaiting a donor</small></div>
+      <div class="card kpi"><span>Pending actions</span><b id="kPending">0</b><small id="kPendingSub"></small></div>
+    </div>
+
+    <div class="two-col">
+      <div class="card"><h3>Donors per blood group</h3><div id="groupChart"></div></div>
+      <div class="card"><h3>Requests by status</h3><div id="statusChart"></div></div>
+    </div>
+
+    <div class="card">
+      <h3>Pending approvals</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Name</th><th>Role</th><th>Area</th><th></th></tr></thead>
+          <tbody id="pendingBody"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/common.js"></script>
+  <script src="js/admin-dashboard.js"></script>
+</body>
+</html>
