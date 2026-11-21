@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Donor Dashboard | Blood Donor Finder</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="protected">
+  <div id="navbar"></div>
+
+  <div class="page">
+    <div class="page-head">
+      <div>
+        <h1 id="welcome">Hello, Karim</h1>
+        <p id="subGreeting">You are helping save lives in Mirpur.</p>
+      </div>
+      <div class="switch-row" style="gap: 12px;">
+        <span id="availText" style="font-weight: 600;">Available to donate</span>
+        <label class="switch">
+          <input type="checkbox" id="availToggle" checked>
+          <span class="slider"></span>
+        </label>
+      </div>
+    </div>
+
+    <div class="kpi-grid">
+      <div class="card kpi">
+        <span>Blood group</span>
+        <b id="kGroup">B+</b>
+        <small id="kArea">Mirpur, Dhaka</small>
+      </div>
+      <div class="card kpi">
+        <span>Total donations</span>
+        <b id="kTotal">0</b>
+        <small id="kLastDonation">Last: None</small>
+      </div>
+      <div class="card kpi">
+        <span>Eligibility</span>
+        <b id="kEligible">-</b>
+        <small id="kEligibleNote">3 months rule</small>
+      </div>
+      <div class="card kpi">
+        <span>Requests answered</span>
+        <b id="kAnswered">0</b>
+        <small>Lives touched</small>
+      </div>
+    </div>
+
+    <div class="two-col">
+      <div class="card">
+        <div class="card-title" style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
+          <h3 style="margin:0;">Matching blood requests</h3>
+          <span class="chip chip-high" id="matchingCount">0 new</span>
+        </div>
+        <div id="requestList"></div>
+        <p class="muted" style="margin-top: 14px; font-size: 12px;">Recipient contact details are revealed after accepting.</p>
+      </div>
+
+      <div>
+        <div class="card" style="margin-bottom: 16px;">
+          <div class="card-title" style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
+            <h3 style="margin:0;">Recent donations</h3>
+            <a href="donor-history.html" class="muted" style="font-size: 13px;">View all</a>
+          </div>
+          <div id="timeline"></div>
+          <a href="donor-history.html" class="btn light small full" style="margin-top: 14px; text-align:center;">+ Record a donation</a>
+        </div>
+
+        <div class="card">
+          <h3 style="margin-bottom: 8px;">Find more requests</h3>
+          <p class="muted" style="font-size: 13px; margin-bottom: 12px;">Browse all open community and hospital requests in your area.</p>
+          <a href="donor-requests.html" class="btn small full" style="text-align:center;">View all requests</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/common.js"></script>
+  <script src="js/donor-dashboard.js"></script>
+</body>
+</html>
