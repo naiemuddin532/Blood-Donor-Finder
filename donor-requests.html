@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blood Requests | Blood Donor Finder</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="protected">
+  <div id="navbar"></div>
+
+  <div class="page">
+    <div class="page-head">
+      <div>
+        <h1>Blood Requests</h1>
+        <p>Urgent requests matching your blood group in your area.</p>
+      </div>
+    </div>
+
+    <div class="tabs">
+      <button class="tab active" data-tab="All" id="tabAll">All (0)</button>
+      <button class="tab" data-tab="Direct" id="tabDirect">Direct to me (0)</button>
+      <button class="tab" data-tab="Area-wide" id="tabArea">Area-wide (0)</button>
+    </div>
+
+    <div class="card" style="margin-bottom: 20px;">
+      <div class="card-title" style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 12px;">
+        <h3 style="margin:0;">Open requests</h3>
+        <span class="muted" style="font-size:12px;">Sorted by urgency</span>
+      </div>
+      <div id="requestList"></div>
+    </div>
+
+    <div class="card">
+      <div class="card-title" style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 12px;">
+        <h3 style="margin:0;">Accepted by you</h3>
+        <span class="chip chip-green" id="activeCount">0 active</span>
+      </div>
+      <div id="acceptedList"></div>
+    </div>
+  </div>
+
+  <script src="js/common.js"></script>
+  <script src="js/donor-requests.js"></script>
+</body>
+</html>
